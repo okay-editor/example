@@ -18,10 +18,6 @@ export default () => {
         }
     })
 
-    useEffect(() => {
-        console.log(1)
-    }, [])
-
     return <>
 
         {/** 标题 */}

@@ -5,7 +5,7 @@ import ListItem from '@tiptap/extension-list-item'
 import TextStyle from '@tiptap/extension-text-style'
 import Typography from '@tiptap/extension-typography'
 import SlashCommand from '@okay-editor/slash-command'
-
+import DragAndDrop from '@okay-editor/drag-and-drop'
 
 const commands = [{
     icon: '',
@@ -72,5 +72,6 @@ export default [
                 return true;
             })
         }
-    })
+    }),
+    DragAndDrop
 ]
