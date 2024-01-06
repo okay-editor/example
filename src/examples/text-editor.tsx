@@ -1,6 +1,7 @@
 import './styles.css'
-import { BubbleMenu, EditorContent, FloatingMenu, useEditor } from "@tiptap/react"
+import { BubbleMenu, EditorContent, useEditor } from "@tiptap/react"
 import Extensions from './extensions'
+import { useEffect } from 'react'
 
 // 默认文本编辑器
 export default () => {
@@ -16,6 +17,10 @@ export default () => {
             console.log(editor.getJSON())
         }
     })
+
+    useEffect(() => {
+        console.log(1)
+    }, [])
 
     return <>
 
