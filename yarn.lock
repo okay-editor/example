@@ -10329,10 +10329,10 @@ yocto-queue@^0.1.0:
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-yyds-okay-editor@1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/yyds-okay-editor/-/yyds-okay-editor-1.0.5.tgz#36f22bd9cc5477cbebe611b899cc22c1019f1663"
-  integrity sha512-85aoQ6//xK+d5bobyneRKk9/yboyTcYhprzPqJnvu/Jo9EI25s4Z8FRNwBbqRStLLt9pQzGWPumNMIQSbWSb/A==
+yyds-okay-editor@1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/yyds-okay-editor/-/yyds-okay-editor-1.0.7.tgz#a7f4a32d5810c57d3835ed535ce4bd735e313254"
+  integrity sha512-4a7v0T8erW+DJjPaoHIHJfh2w+p+UrGTkyoT4327jT+y0IbZwhFMhXW2mjR5Iroc0ipSWIfI9y6ZH4z3g9oexQ==
   dependencies:
     "@tiptap/pm" "^2.1.13"
     "@tiptap/react" "^2.1.13"

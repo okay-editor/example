@@ -15,5 +15,5 @@ export const OkayEditors = () => {
             console.log(editor.getJSON())
         }
     })
-    return <OkayEditor editor={editor}></OkayEditor>
+    return <OkayEditor ></OkayEditor>
 }
