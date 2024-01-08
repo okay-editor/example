@@ -4,8 +4,8 @@ import { Color } from '@tiptap/extension-color'
 import ListItem from '@tiptap/extension-list-item'
 import TextStyle from '@tiptap/extension-text-style'
 import Typography from '@tiptap/extension-typography'
-import SlashCommand from '@okay-editor/slash-command'
-import DragAndDrop from '@okay-editor/drag-and-drop'
+// import SlashCommand from '@okay-editor/slash-command'
+// import DragAndDrop from '@okay-editor/drag-and-drop'
 
 const commands = [{
     icon: '',
@@ -57,21 +57,21 @@ export default [
         }
     }),
     Typography,
-    SlashCommand.configure({
-        items: ({ query }: { query: string }) => {
-            return commands.filter((item: any) => {
-                if (typeof query === "string" && query.length > 0) {
-                    const search = query.toLowerCase();
-                    return (
-                        item.title.toLowerCase().includes(search) ||
-                        item.description.toLowerCase().includes(search) ||
-                        (item.searchTerms &&
-                            item.searchTerms.some((term: string) => term.includes(search)))
-                    );
-                }
-                return true;
-            })
-        }
-    }),
-    DragAndDrop
+    // SlashCommand.configure({
+    //     items: ({ query }: { query: string }) => {
+    //         return commands.filter((item: any) => {
+    //             if (typeof query === "string" && query.length > 0) {
+    //                 const search = query.toLowerCase();
+    //                 return (
+    //                     item.title.toLowerCase().includes(search) ||
+    //                     item.description.toLowerCase().includes(search) ||
+    //                     (item.searchTerms &&
+    //                         item.searchTerms.some((term: string) => term.includes(search)))
+    //                 );
+    //             }
+    //             return true;
+    //         })
+    //     }
+    // }),
+    // DragAndDrop
 ]
