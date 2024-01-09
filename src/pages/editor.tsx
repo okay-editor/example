@@ -1,29 +1,30 @@
-import './styles.css'
+import './style.scss'
 import { BubbleMenu, EditorContent, useEditor } from "@tiptap/react"
-import Extensions from './extensions'
-import { useEffect } from 'react'
+import { editorProps, extensions } from "./config"
 
-// 默认文本编辑器
-export default () => {
-    const editor = useEditor({
-        // 支持html和json
-        content: '',
-        autofocus: true,
-        extensions: [
-            ...Extensions
-        ],
-        // 更新时回调
-        onUpdate: ({ editor, transaction }) => {
-            console.log(editor.getJSON())
+const json = {
+    type: 'doc',
+    content: [
+        {
+            type: 'action',
+            attrs: {
+                title: 'title',
+                describe: 'describe'
+            },
         }
+    ]
+}
+
+export const Editor = () => {
+
+    const editor = useEditor({
+        extensions,
+        editorProps,
+        autofocus: true,
+        content: ''
     })
 
     return <>
-
-        {/** 标题 */}
-        <div className='example-title'>默认文本编辑器</div>
-
-        {/** 菜单栏 */}
         <div className='menu-bar'>
             <button onClick={() => editor?.chain().focus().toggleBold().run()}
                 disabled={!editor?.can().chain().focus().toggleBold().run()}
@@ -110,11 +111,6 @@ export default () => {
                 disabled={!editor?.can().chain().focus().redo().run()}>
                 还原
             </button>
-            <button
-                onClick={() => editor?.chain().focus().setColor('#958DF1').run()}
-                className={editor?.isActive('textStyle', { color: '#958DF1' }) ? 'is-active' : ''}>
-                设置颜色
-            </button>
         </div>
 
         {/** 选中菜单 */}
@@ -132,21 +128,7 @@ export default () => {
                 删除线
             </button>
         </BubbleMenu>}
-
-        {/** 浮动菜单 */}
-        { /** editor && <FloatingMenu className="floating-menu" tippyOptions={{ duration: 100 }} editor={editor}>
-            <button onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-                className={editor.isActive('heading', { level: 1 }) ? 'is-active' : ''}>
-                标题
-            </button>
-            <button
-                onClick={() => editor.chain().focus().toggleBulletList().run()}
-                className={editor.isActive('bulletList') ? 'is-active' : ''}>
-                列表
-            </button>
-        </FloatingMenu> */}
-
-        {/** 加载内容 */}
-        <EditorContent editor={editor} />
+        <EditorContent className="editor" editor={editor} />
     </>
+
 }
