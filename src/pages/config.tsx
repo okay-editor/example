@@ -7,13 +7,13 @@ import DragAndDrop from "../extensions/drag-and-drop"
 import CustomKeyboardShortcuts from "../extensions/keyboard-shortcuts"
 import Action from "../extensions/action"
 
-export const extensions = [
+
+export const defaultExtensions = [
     StarterKit,
-    Action,
     Placeholder.configure({
         placeholder: ({ node }: any) => {
             if (node.type.name === 'paragraph') {
-                return `输入“/”可唤起工具面板...`
+                return `输入\'/\'唤起工具面板...`
             }
             return ''
         },
@@ -21,9 +21,10 @@ export const extensions = [
     SlashCommand,
     DragAndDrop,
     CustomKeyboardShortcuts,
+    Action
 ]
 
-export const editorProps: EditorProps = {
+export const defaultEditorProps: EditorProps = {
     handlePaste: (view: EditorView, event: ClipboardEvent) => {
         if (
             event.clipboardData &&

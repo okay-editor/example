@@ -1,31 +1,22 @@
 import './style.scss'
+import { defaultEditorProps, defaultExtensions } from "./config"
 import { BubbleMenu, EditorContent, useEditor } from "@tiptap/react"
-import { editorProps, extensions } from "./config"
-
-const json = {
-    type: 'doc',
-    content: [
-        {
-            type: 'action',
-            attrs: {
-                title: 'title',
-                describe: 'describe'
-            },
-        }
-    ]
-}
 
 export const Editor = () => {
 
     const editor = useEditor({
-        extensions,
-        editorProps,
+        extensions: [
+            ...defaultExtensions
+        ],
+        editorProps: {
+            ...defaultEditorProps
+        },
         autofocus: true,
         content: ''
     })
 
     return <>
-        <div className='menu-bar'>
+        {/* <div className='menu-bar'>
             <button onClick={() => editor?.chain().focus().toggleBold().run()}
                 disabled={!editor?.can().chain().focus().toggleBold().run()}
                 className={editor?.isActive('bold') ? 'is-active' : ''}>
@@ -111,10 +102,10 @@ export const Editor = () => {
                 disabled={!editor?.can().chain().focus().redo().run()}>
                 还原
             </button>
-        </div>
+        </div> */}
 
         {/** 选中菜单 */}
-        {editor && <BubbleMenu className="bubble-menu" tippyOptions={{ duration: 100 }} editor={editor}>
+        {/* {editor && <BubbleMenu className="bubble-menu" tippyOptions={{ duration: 100 }} editor={editor}>
             <button onClick={() => editor?.chain().focus().toggleBold().run()}
                 className={editor?.isActive('bold') ? 'is-active' : ''}>
                 加粗
@@ -127,7 +118,7 @@ export const Editor = () => {
                 className={editor?.isActive('strike') ? 'is-active' : ''}>
                 删除线
             </button>
-        </BubbleMenu>}
+        </BubbleMenu>} */}
         <EditorContent className="editor" editor={editor} />
     </>
 

@@ -31,7 +31,7 @@ const ActionForm = (props: ActionProps) => {
                 <NodeViewContent as="code" />
             </pre>
             <button onClick={() => {
-                props?.editor?.chain().focus().setHardBreak().run()
+                // props?.editor?.chain().focus().setHardBreak().run()
             }}>运行</button>
         </div>
     </NodeViewWrapper>

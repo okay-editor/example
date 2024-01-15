@@ -12,6 +12,7 @@ import { EditorView } from '@tiptap/pm/view'
 const char = '/'
 
 /** 示例菜单项 */
+// const menus: any[] = []
 const menus = [
     {
         title: "标题 1",
@@ -222,12 +223,13 @@ const render = () => {
 
     return {
         onStart: (props: { editor: Editor; clientRect: DOMRect }) => {
+            console.log(props.clientRect)
             component = new ReactRenderer(SlashCommandMenus, {
                 props,
                 editor: props.editor,
             });
             // @ts-ignore
-            popup = tippy("body", {
+            popup = tippy(".proseMirror", {
                 getReferenceClientRect: props.clientRect,
                 appendTo: () => document.body,
                 content: component.element,
